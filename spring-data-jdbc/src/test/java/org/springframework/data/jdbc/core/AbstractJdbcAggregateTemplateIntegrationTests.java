@@ -1266,7 +1266,7 @@ abstract class AbstractJdbcAggregateTemplateIntegrationTests {
 	}
 
 	@Test // GH-1684
-	void oneToOneWithIdenticalColumnName(){
+	void oneToOneWithIdenticalIdColumnName(){
 
 		WithOneToOne saved = template.insert(new WithOneToOne("one", new Referenced(23L)));
 

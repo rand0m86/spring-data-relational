@@ -326,7 +326,7 @@ public class MappingJdbcConverter extends MappingRelationalConverter implements 
 			this.accessor = accessor;
 			this.context = context;
 			this.identifier = path.isEntity()
-					? potentiallyAppendIdentifier(identifier, path.getRequiredLeafEntity(), delegate::getPropertyValue)
+					? potentiallyAppendIdentifier(identifier, path.getRequiredLeafEntity(), this::getPropertyValue)
 					: identifier;
 		}
 
@@ -376,6 +376,7 @@ public class MappingJdbcConverter extends MappingRelationalConverter implements 
 						}
 					}
 
+					// TODO: Why does this get a PersistentPropertyPath????
 					Iterable<Object> allByPath = relationResolver.findAllByPath(identifierToUse,
 							aggregatePath.getRequiredPersistentPropertyPath());
 
