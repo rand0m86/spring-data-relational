@@ -1090,9 +1090,9 @@ public class MappingRelationalConverter extends AbstractRelationalConverter impl
 				return null;
 			}
 
-			ConversionContext contextToUse = context.forProperty(property);
+//			ConversionContext contextToUse = context.forProperty(property);
 
-			return (T) contextToUse.convert(value, property.getTypeInformation());
+			return (T) context.convert(value, property.getTypeInformation());
 		}
 
 		@Override

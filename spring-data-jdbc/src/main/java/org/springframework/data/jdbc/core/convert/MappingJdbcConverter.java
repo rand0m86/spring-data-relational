@@ -357,7 +357,7 @@ public class MappingJdbcConverter extends MappingRelationalConverter implements 
 			AggregatePath aggregatePath = this.context.aggregatePath();
 
 			if (getConversions().isSimpleType(property.getActualType())) {
-				return (T) delegate.getValue(aggregatePath);
+				return (T) delegate.getPropertyValue(property);
 			}
 
 			if (property.isEntity()) {
