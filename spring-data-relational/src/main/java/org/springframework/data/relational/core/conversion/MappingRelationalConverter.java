@@ -542,7 +542,7 @@ public class MappingRelationalConverter extends AbstractRelationalConverter impl
 
 			ConversionContext propertyContext = context.forProperty(property);
 			RelationalPropertyValueProvider valueProviderToUse = valueProvider.withContext(propertyContext);
-
+//RelationalPropertyValueProvider valueProviderToUse = valueProvider;
 			if (property.isEmbedded()) {
 				accessor.setProperty(property, readEmbedded(propertyContext, valueProviderToUse, documentAccessor, property,
 						getMappingContext().getRequiredPersistentEntity(property)));
@@ -1085,6 +1085,11 @@ public class MappingRelationalConverter extends AbstractRelationalConverter impl
 
 			String expression = property.getSpelExpression();
 			Object value = expression != null ? evaluator.evaluate(expression) : accessor.get(property);
+
+			System.out.print("getPropertyValue");
+			System.out.print("\tproperty: " + property);
+			System.out.print("\towner: " + property.getOwner().getName());
+			System.out.println("\tvalue: " + value);
 
 			if (value == null) {
 				return null;
