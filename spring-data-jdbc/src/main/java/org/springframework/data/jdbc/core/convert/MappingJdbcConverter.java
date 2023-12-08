@@ -353,7 +353,7 @@ public class MappingJdbcConverter extends MappingRelationalConverter implements 
 		@Nullable
 		@Override
 		public <T> T getPropertyValue(RelationalPersistentProperty property) {
-// why is there a delegate and a context??? Seems redundant
+
 			AggregatePath aggregatePath = this.context.aggregatePath();
 
 			if (getConversions().isSimpleType(property.getActualType())) {
