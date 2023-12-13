@@ -361,6 +361,7 @@ public class MappingJdbcConverter extends MappingRelationalConverter implements 
 				if (!aggregatePath.isRoot() && aggregatePath.getRequiredLeafProperty().equals(property)) {
 					return (T) delegate.getValue(aggregatePath);
 				} else {
+					RelationalPersistentProperty requiredLeafProperty = aggregatePath.isRoot() ? null : aggregatePath.getRequiredLeafProperty();
 					return (T)delegate.getValue(aggregatePath.append(property));
 				}
 			}
